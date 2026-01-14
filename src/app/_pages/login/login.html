@@ -1,0 +1,25 @@
+<section class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center mb-6">Connexion</h1>
+
+    <div class="space-y-4">
+      <input type="email" placeholder="Email"
+             class="w-full px-4 py-2 border rounded-md"
+             (input)="email.set($any($event.target).value)"
+             [value]="email()">
+
+      <input type="password" placeholder="Mot de passe"
+             class="w-full px-4 py-2 border rounded-md"
+             (input)="password.set($any($event.target).value)"
+             [value]="password()">
+
+      <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md"
+              (click)="submit()">Se connecter</button>
+
+      <p class="text-red-500 text-sm mt-2" 
+         [hidden]="!authService.errorMessage()">
+        {{ authService.errorMessage() }}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<footer class="fixed bottom-0 w-full bg-black py-4 flex justify-around items-center border-t border-gray-700 z-50">
+
+    <a routerLink="/boutique/catalogue" class="flex flex-col items-center text-white hover:text-orange-500">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/>
+    </svg>
+    </a>
+
+  <!-- Box -->
+  <a routerLink="/boutique/ma-boite" class="text-white hover:text-orange-500">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21 16V8l-9-5-9 5v8l9 5 9-5zM12 3.5L20 8v7l-8 4.5L4 15V8l8-4.5z"/>
+    </svg>
+  </a>
+
+    <!-- User -->
+    <button (click)="handleUserClick()" class="text-white hover:text-orange-500">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+    </button>
+
+  <!-- Panier -->
+  <a routerLink="/boutique/panier" class="text-white hover:text-orange-500">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7 4h-2l-1 2h-4v2h2l3.6 7.59-1.35 2.44C5.52 18.37 6.48 20 8 20h12v-2H8.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49-.02-.02c.08-.14.14-.3.14-.46 0-.55-.45-1-1-1H5.21l-.94-2H7V4z"/>
+    </svg>
+  </a>
+
+</footer>

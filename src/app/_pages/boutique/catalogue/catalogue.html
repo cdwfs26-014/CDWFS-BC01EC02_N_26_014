@@ -1,0 +1,57 @@
+<!-- catalogue.html -->
+
+<!-- CATÉGORIES -->
+<section class="mt-6 px-6">
+  <div class="flex gap-4 justify-center flex-wrap">
+    <button 
+      (click)="filterByCategory(null)"
+      [class.bg-orange-500]="!selectedCategoryId()"
+      [class.text-white]="!selectedCategoryId()"
+      class="border border-gray-300 rounded-full px-4 py-2 hover:bg-orange-400 hover:text-white transition">
+      Toutes
+    </button>
+    <button *ngFor="let cat of categories()" 
+            (click)="filterByCategory(cat.id)"
+            [class.bg-orange-500]="selectedCategoryId() === cat.id"
+            [class.text-white]="selectedCategoryId() === cat.id"
+            class="border border-gray-300 rounded-full px-4 py-2 hover:bg-orange-400 hover:text-white transition">
+      {{ cat.titre }}
+    </button>
+  </div>
+</section>
+
+<!-- NOM CATÉGORIE -->
+<section class="mt-6 px-6">
+    <h2>{{ selectedCategoryTitle() }}</h2>
+</section>
+
+<!-- PRODUITS -->
+<section class="mt-4 px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <div *ngFor="let product of filteredProducts()" 
+       class="relative bg-gray-900 rounded-xl overflow-hidden shadow-lg p-4 flex flex-col">
+
+    <!-- Image adaptée cliquable -->
+    <a [routerLink]="['../produit', product.reference_produit]" class="block w-full max-h-40 overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-gray-800">
+    <img [src]="getProductImage(product)" 
+        alt="{{ product.nom }}" 
+        class="max-h-40 w-auto object-contain">
+    </a>
+
+    <!-- Nom cliquable -->
+    <a [routerLink]="['../produit', product.reference_produit]" class="hover:underline">
+    <h3 class="text-orange-500 font-semibold">{{ product.nom }}</h3>
+    </a>
+
+    
+    <p class="text-gray-400 text-sm">{{ product.collection }}</p>
+    <p class="text-gray-500 text-xs mt-1">{{ product.nombre_pieces }} pièces</p>
+    <p class="text-gray-400 mt-2">Prix : {{ product.prix_unitaire }} €</p>
+
+    <button (click)="addToCart(product)" 
+            class="absolute bottom-4 right-4 bg-orange-500 hover:bg-orange-400 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+      +
+    </button>
+  </div>
+</section>
+
+<app-footer></app-footer>

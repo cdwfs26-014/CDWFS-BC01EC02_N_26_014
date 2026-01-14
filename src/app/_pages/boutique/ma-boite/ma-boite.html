@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Ma Boîte</h2>
+  <p>Créez votre boîte sur mesure en ajoutant des produits :</p>
+
+  <div class="product-list">
+    <div *ngFor="let product of products" class="product-item" (click)="addProduct(product)">
+      <img [src]="product.image" [alt]="product.name" class="product-thumb">
+      <p>{{ product.name }}</p>
+    </div>
+  </div>
+
+  <div class="box-wrapper">
+    <div [ngClass]="'isometric-box box-' + boxSize()">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face bottom"></div>
+      <div class="face section1x" *ngIf="boxSize() >= 4"></div>
+      <div class="face section1y" *ngIf="boxSize() >= 4"></div>
+      <div class="face section2x" *ngIf="boxSize() >= 6"></div>
+      <div class="face section2y" *ngIf="boxSize() >= 6"></div>
+
+      <ng-container *ngFor="let product of box(); let i = index">
+        <img [src]="product.image" [alt]="product.name"
+             class="maki maki-{{i + 1}}"
+             (click)="removeProduct(i)">
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

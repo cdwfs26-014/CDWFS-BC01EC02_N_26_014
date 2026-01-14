@@ -1,0 +1,43 @@
+<section class="p-6">
+  <button routerLink="/boutique/catalogue" class="mb-4 px-4 py-2 bg-gray-800 text-white rounded">← Retour</button>
+
+  <!-- Bloc produit principal -->
+  <div *ngIf="product() as p" class="flex gap-6">
+    <!-- Image -->
+    <div class="w-1/2">
+      <img [src]="'/images/produits/' + p.reference_image" 
+           alt="{{ p.nom }}" 
+           class="w-full h-auto rounded-lg object-contain">
+    </div>
+
+    <!-- Infos produit -->
+    <div class="w-1/2 flex flex-col gap-2">
+      <h2 class="text-2xl font-bold text-orange-500">{{ p.nom }}</h2>
+      <p>{{ p.description }}</p>
+      <p>{{ p.nombre_pieces }} pièces</p>
+      <p>Prix : {{ p.prix_unitaire }} €</p>
+      <button (click)="addToCart()" 
+              class="bg-orange-500 hover:bg-orange-400 text-white px-4 py-2 rounded mt-2 w-32">
+        +
+      </button>
+    </div>
+  </div>
+
+  <!-- Ingrédients et allergènes -->
+  <div *ngIf="product() as p" class="flex gap-6 mt-6">
+    <div class="w-1/2">
+      <h3 class="font-semibold mb-2">Ingrédients</h3>
+      <ul class="list-disc list-inside">
+        <li *ngFor="let i of p.ingredients">{{ i }}</li>
+      </ul>
+    </div>
+    <div class="w-1/2">
+      <h3 class="font-semibold mb-2">Allergènes</h3>
+      <ul class="list-disc list-inside">
+        <li *ngFor="let a of p.allergenes">{{ a }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

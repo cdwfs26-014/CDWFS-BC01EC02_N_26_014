@@ -1,0 +1,15 @@
+<main class="p-6 text-center">
+  <h1 class="text-3xl font-bold mb-6">Bienvenue sur notre boutique !</h1>
+  <p class="mb-6">Choisissez votre mode de consommation :</p>
+
+  <div class="flex gap-6 justify-center">
+    <button (click)="chooseOption('sur_place')"
+            class="bg-orange-500 hover:bg-orange-400 text-white px-8 py-6 rounded-lg text-xl font-bold">
+      Sur place
+    </button>
+    <button (click)="chooseOption('a_emporter')"
+            class="bg-green-500 hover:bg-green-400 text-white px-8 py-6 rounded-lg text-xl font-bold">
+      À emporter
+    </button>
+  </div>
+</main>
