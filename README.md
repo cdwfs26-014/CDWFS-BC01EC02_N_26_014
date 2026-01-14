@@ -1,3 +1,4 @@
+# Epreuve Front avec Framework
 # AppBoutique
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.14.
@@ -8,6 +9,11 @@ To start a local development server, run:
 
 ```bash
 ng serve
+```
+don't forget : 
+
+```bash
+npx tailwindcss -i src/styles.css -o src/tailwind-output.css --watch
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
